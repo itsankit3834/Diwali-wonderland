@@ -7,7 +7,7 @@ import { config } from './config'
 type Burst = { id: number; x: number; y: number; hue: number }
 const fadeUp = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: .8, ease: 'easeOut' as const } } }
 
-function Diya({ lit, onClick, small = false }: { lit: boolean; onClick: () => void; small?: boolean }) {
+function Diya({ lit, onClick, small = false }: { lit: boolean; onClick: (e: MouseEvent<HTMLButtonElement>) => void; small?: boolean }) {
   return <button className={`diya ${lit ? 'is-lit' : ''} ${small ? 'diya-small' : ''}`} onClick={onClick} aria-label={lit ? 'A diya is glowing' : 'Light this diya'}>
     <span className="flame"><i /></span><span className="wick" /><span className="bowl" /><span className="diya-glow" />
   </button>
